@@ -1,0 +1,536 @@
+:root {
+    --primary-color: #4a5568;
+    --accent-color: #718096;
+    --background-color: #f7fafc;
+    --text-color: #2d3748;
+    --border-color: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.input-section {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.theme-input, .style-select, .emotion-select {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.generate-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.generate-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.output-section {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.poem-display {
+    min-height: 200px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1.1rem;
+    line-height: 2;
+    background: #fffef8;
+}
+
+.poem-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    font-family: "楷体", "KaiTi", serif;
+}
+
+.poem-content {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: "楷体", "KaiTi", serif;
+}
+
+.poem-line {
+    margin: 0.8rem 0;
+    font-size: 1.2rem;
+    color: #4a5568;
+}
+
+.poem-analysis {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.analysis-title {
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.analysis-content {
+    color: #4a5568;
+    line-height: 1.8;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.poem-display > * {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-title { animation-delay: 0.1s; }
+.poem-content { animation-delay: 0.3s; }
+.poem-analysis { animation-delay: 0.5s; }
+
+.examples-section {
+    margin-top: 3rem;
+}
+
+.example-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.example-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.example-card:hover {
+    transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .poem-display {
+        padding: 1.5rem;
+    }
+    
+    .poem-title {
+        font-size: 1.3rem;
+    }
+    
+    .poem-line {
+        font-size: 1.1rem;
+    }
+}
+
+/* 诗词容器基础样式 */
+.poem-wrapper {
+    padding: 2rem;
+    position: relative;
+}
+
+/* 现代诗样式 */
+.modern-style {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.modern-poem {
+    margin: 2rem 0;
+    line-height: 2;
+}
+
+.modern-poem .poem-line {
+    margin: 1rem 0;
+    text-align: left;
+    text-indent: 2em;
+}
+
+/* 古风诗样式 */
+.ancient-style {
+    font-family: "楷体", "KaiTi", serif;
+}
+
+.ancient-poem {
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.ancient-poem .poem-couplet {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ancient-poem .poem-line {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+    letter-spacing: 0.5rem;
+}
+
+/* 俳句样式 */
+.haiku-style {
+    font-family: "宋体", "SimSun", serif;
+}
+
+.haiku-poem {
+    margin: 3rem auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.haiku-poem .poem-line {
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+    letter-spacing: 0.3rem;
+}
+
+/* 装饰元素 */
+.ancient-style::before,
+.ancient-style::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 80%;
+    background: #e2e8f0;
+    top: 10%;
+}
+
+.ancient-style::before {
+    left: 1rem;
+}
+
+.ancient-style::after {
+    right: 1rem;
+}
+
+.haiku-style::before {
+    content: '⚊';
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #718096;
+}
+
+/* 标题样式调整 */
+.modern-style .poem-title {
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.ancient-style .poem-title {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+}
+
+.haiku-style .poem-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+}
+
+/* 赏析样式调整 */
+.modern-style .poem-analysis {
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.ancient-style .poem-analysis {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 1rem;
+}
+
+.haiku-style .poem-analysis {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .poem-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .ancient-poem .poem-line {
+        font-size: 1.1rem;
+        letter-spacing: 0.3rem;
+    }
+    
+    .haiku-poem .poem-line {
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    .ancient-style::before,
+    .ancient-style::after {
+        display: none;
+    }
+}
+
+/* 主题配色方案 */
+.theme-light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7fafc;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --border-color: #e2e8f0;
+    --accent-color: #718096;
+}
+
+.theme-dark {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --border-color: #4a5568;
+    --accent-color: #a0aec0;
+}
+
+.theme-ink {
+    --bg-primary: #fffef8;
+    --bg-secondary: #f4f3e8;
+    --text-primary: #2c2c2c;
+    --text-secondary: #4a4a4a;
+    --border-color: #8b8b8b;
+    --accent-color: #595959;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23f4f3e8' fill-opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* 字体设置 */
+.font-songti { font-family: "SimSun", "宋体", serif; }
+.font-kaiti { font-family: "KaiTi", "楷体", serif; }
+.font-fangsong { font-family: "FangSong", "仿宋", serif; }
+
+/* 竖排展示 */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    height: 400px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.vertical-text .poem-line {
+    height: auto;
+    margin: 0 1rem;
+    white-space: nowrap;
+}
+
+/* 装饰风格 */
+.decoration-simple::before,
+.decoration-simple::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 80%;
+    background: var(--border-color);
+    top: 10%;
+    transition: background-color 0.3s;
+}
+
+.decoration-simple::before { left: 1rem; }
+.decoration-simple::after { right: 1rem; }
+
+.decoration-traditional {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0c11 0 20 9 20 20s-9 20-20 20S0 31 0 20 9 0 20 0zm0 2c-9.9 0-18 8.1-18 18s8.1 18 18 18 18-8.1 18-18S29.9 2 20 2zm0 4c7.7 0 14 6.3 14 14s-6.3 14-14 14S6 27.7 6 20 12.3 6 20 6zm0 2c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12S26.6 8 20 8z' fill='%23718096' fill-opacity='0.1'/%3E%3C/svg%3E");
+}
+
+/* 设置面板样式 */
+.settings-panel {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+    z-index: 1000;
+}
+
+.settings-toggle {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.settings-toggle svg {
+    fill: var(--text-primary);
+    transition: fill 0.3s;
+}
+
+.settings-content {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.settings-content.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.setting-item {
+    margin-bottom: 1rem;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.setting-item select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .settings-panel {
+        right: 1rem;
+        top: 1rem;
+    }
+    
+    .settings-content {
+        width: calc(100vw - 2rem);
+        right: -1rem;
+    }
+    
+    .vertical-text {
+        height: 300px;
+    }
+}
+
+/* 加载状态样式 */
+.loading-state {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+.error-state {
+    text-align: center;
+    color: #e53e3e;
+    padding: 2rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+} 

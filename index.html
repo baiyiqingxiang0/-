@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗词生成器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>诗词生成器</h1>
+            <p class="subtitle">让文字流淌成诗</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="theme-input">
+                    <label for="theme">创作主题</label>
+                    <input type="text" id="theme" placeholder="请输入您想要创作的主题，如：春天、思乡、友情...">
+                </div>
+
+                <div class="style-select">
+                    <label for="style">诗词风格</label>
+                    <select id="style">
+                        <option value="modern">现代诗</option>
+                        <option value="ancient">古风诗</option>
+                        <option value="haiku">俳句</option>
+                    </select>
+                </div>
+
+                <div class="emotion-select">
+                    <label for="emotion">情感倾向</label>
+                    <select id="emotion">
+                        <option value="happy">欢快</option>
+                        <option value="sad">忧伤</option>
+                        <option value="peaceful">平和</option>
+                        <option value="passionate">热情</option>
+                    </select>
+                </div>
+
+                <button id="generate" class="generate-btn">生成诗词</button>
+            </div>
+
+            <div class="settings-panel">
+                <button id="toggleSettings" class="settings-toggle">
+                    <svg class="settings-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M12 8c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+                    </svg>
+                </button>
+                
+                <div class="settings-content">
+                    <div class="setting-item">
+                        <label>主题风格</label>
+                        <select id="themeSelect">
+                            <option value="light">浅色主题</option>
+                            <option value="dark">深色主题</option>
+                            <option value="ink">水墨风格</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label>字体选择</label>
+                        <select id="fontSelect">
+                            <option value="default">默认字体</option>
+                            <option value="songti">宋体</option>
+                            <option value="kaiti">楷体</option>
+                            <option value="fangsong">仿宋</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label>排版方向</label>
+                        <select id="layoutSelect">
+                            <option value="horizontal">横排</option>
+                            <option value="vertical">竖排</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label>装饰风格</label>
+                        <select id="decorationSelect">
+                            <option value="none">无装饰</option>
+                            <option value="simple">简约线条</option>
+                            <option value="traditional">传统纹样</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="preview">
+                    <h3>诗词预览</h3>
+                    <div id="poem-output" class="poem-display">
+                        您的诗词将在这里展示...
+                    </div>
+                </div>
+            </div>
+
+            <div class="examples-section">
+                <h3>创作示例</h3>
+                <div class="example-cards">
+                    <div class="example-card" data-theme="春天">
+                        <h4>春日遐想</h4>
+                        <p>春风拂面暖，花开满园香...</p>
+                    </div>
+                    <div class="example-card" data-theme="思乡">
+                        <h4>思乡情怀</h4>
+                        <p>月明故乡远，思绪满心间...</p>
+                    </div>
+                    <div class="example-card" data-theme="友情">
+                        <h4>友谊之歌</h4>
+                        <p>相逢即是缘，相知更难得...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
