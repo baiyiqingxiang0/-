@@ -30,17 +30,17 @@ const exampleCards = document.querySelectorAll('.example-card');
 const API_CONFIG = {
     deepseek: {
         baseUrl: 'https://api.deepseek.com/v1',
-        key: 'sk-cc80caa1c04844efb15324d359a1df4c',
+        key: 'sk-cc80cxxxxxxxxxxxxxxxx',
         model: "deepseek-chat"
     },
     moonshot: {
         baseUrl: 'https://api.moonshot.cn/v1',
-        key: 'sk-BEVbvTROZVQzpxkRgRzVEp6zMRdQF9avyOaudiuRar4t6ajt',
+        key: 'sk-BEVbvTROZxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         model: "moonshot-v1-8k"
     },
     tongyi: {
         baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
-        key: 'sk-c41964b15abf42c3990942b2d2ad425e',
+        key: 'sk-c41964b1xxxxxxxxxxxxxxxx',
         model: "qwen-max"
     }
 };
