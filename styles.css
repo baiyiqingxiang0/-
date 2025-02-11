@@ -4,6 +4,11 @@
     --background-color: #f7fafc;
     --text-color: #2d3748;
     --border-color: #e2e8f0;
+    --font-modern: "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-ancient: "KaiTi", "楷体", serif;
+    --font-haiku: "SimSun", "宋体", serif;
+    --error-color: #e53e3e;
+    --success-color: #48bb78;
 }
 
 * {
@@ -79,7 +84,7 @@ input, select {
     cursor: pointer;
     width: 100%;
     font-size: 1.1rem;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .generate-btn:hover {
@@ -179,7 +184,7 @@ input, select {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
 }
 
 .example-card:hover {
@@ -216,7 +221,7 @@ input, select {
 
 /* 现代诗样式 */
 .modern-style {
-    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--font-modern);
 }
 
 .modern-poem {
@@ -232,7 +237,7 @@ input, select {
 
 /* 古风诗样式 */
 .ancient-style {
-    font-family: "楷体", "KaiTi", serif;
+    font-family: var(--font-ancient);
 }
 
 .ancient-poem {
@@ -255,7 +260,7 @@ input, select {
 
 /* 俳句样式 */
 .haiku-style {
-    font-family: "宋体", "SimSun", serif;
+    font-family: var(--font-haiku);
 }
 
 .haiku-poem {
@@ -387,9 +392,11 @@ input, select {
 }
 
 /* 字体设置 */
+/* 删除这些类
 .font-songti { font-family: "SimSun", "宋体", serif; }
 .font-kaiti { font-family: "KaiTi", "楷体", serif; }
 .font-fangsong { font-family: "FangSong", "仿宋", serif; }
+*/
 
 /* 竖排展示 */
 .vertical-text {
@@ -437,7 +444,7 @@ input, select {
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     padding: 0.5rem;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
 }
 
 .settings-toggle svg {
@@ -453,7 +460,7 @@ input, select {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1rem;
-    width: 250px;
+    width: 200px;
     display: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -500,8 +507,12 @@ input, select {
     }
     
     .settings-content {
-        width: calc(100vw - 2rem);
-        right: -1rem;
+        width: calc(100vw - 3rem);
+        right: -0.5rem;
+    }
+    
+    .container {
+        padding: 1rem;
     }
     
     .vertical-text {
@@ -533,4 +544,207 @@ input, select {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/* 操作按钮样式 */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: var(--bg-secondary);
+}
+
+.action-btn svg {
+    fill: currentColor;
+}
+
+/* 历史记录样式 */
+.history-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.history-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.history-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.delete-history {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--error-color);
+}
+
+.delete-history svg {
+    fill: currentColor;
+}
+
+.history-item:hover .delete-history {
+    opacity: 1;
+}
+
+.delete-history:hover {
+    transform: scale(1.1);
+}
+
+/* 分享弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--bg-primary);
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    animation: modalSlideIn 0.3s ease;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.share-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.share-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    opacity: 0.9;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 优化加载动画 */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.loading-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: 0.5; }
+}
+
+/* 确保字体清晰 */
+.poem-title, .poem-content, .poem-line {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* 确保字体渲染清晰 */
+.poem-wrapper {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* 优化打印和导出时的样式 */
+@media print {
+    .poem-wrapper {
+        background: white !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
 } 
