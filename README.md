@@ -1,6 +1,7 @@
 # AI诗词创作助手
 
 一个优雅的AI驱动的诗词创作工具，支持多种AI模型，可以生成现代诗、古风诗和俳句等多种风格的诗词作品。
+[在线体验](http://www.baiyiqingxiang.online:8100/)
 
 ## ✨ 特性
 
@@ -81,7 +82,6 @@
 
 ## 🙏 致谢
 
-- [html2canvas](http://www.baiyiqingxiang.online:8100/) - 用于生成图片
 - Deepseek API
 - Moonshot API
 - 通义千问 API
