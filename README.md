@@ -1,6 +1,3 @@
-
-3. 在浏览器中打开`index.html`即可使用
-
 ## 📖 使用说明
 
 1. 输入创作主题
@@ -56,7 +53,7 @@
 
 ## 🙏 致谢
 
-- [html2canvas](https://html2canvas.hertzen.com/) - 用于生成图片
+- [html2canvas](http://www.baiyiqingxiang.online:8100/) - 用于生成图片
 - Deepseek API
 - Moonshot API
 - 通义千问 API
@@ -72,15 +69,14 @@
 
 ## 👥 作者
 
-- 设计与开发：[Your Name]
-- Email: your.email@example.com
+- Email: baiqingxiang01@gmail.com
 
 ## 💬 问题反馈
 
 如果您有任何问题或建议，欢迎：
 
-1. 提交 [Issue](https://github.com/yourusername/ai-poem-generator/issues)
-2. 发送邮件至 your.email@example.com
+1. 提交 [Issue](https://github.com/baiqingxiang0/ai-poem-generator/issues)
+2. 发送邮件至 baiqingxiang01@gmail.com
 
 ---
-Made with ❤️ by [Your Name]
+Made with ❤️ by [baiqingxiang0]
