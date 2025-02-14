@@ -24,10 +24,6 @@
 
 1. 克隆项目到本地：
 
-```bash
-git clone https://github.com/baiqingxiang0/ai-poem-generator.git
-```
-
 2. 在浏览器中打开`index.html`即可使用
 
 ## 📖 使用说明
